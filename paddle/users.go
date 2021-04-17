@@ -25,6 +25,8 @@ type User struct {
 	LastPayment        *UserPayment        `json:"last_payment,omitempty"`
 	NextPayment        *UserPayment        `json:"next_payment,omitempty"`
 	PaymentInformation *PaymentInformation `json:"payment_information,omitempty"`
+	PausedAt           *string             `json:"paused_at,omitempty"`
+	PausedFrom         *string             `json:"paused_from,omitempty"`
 }
 
 type UserPayment struct {
