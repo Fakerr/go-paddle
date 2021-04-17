@@ -3,10 +3,10 @@ name: Test package paddle
 on:
   push:
     branches:
-	- master
+    - master
   pull_request:
     branches:
-	- master
+    - master
 
 jobs:
 
@@ -22,7 +22,7 @@ jobs:
 
     - name: Run go fmt
       run: diff -u <(echo -n) <(gofmt -d -s .)
-	  
+
     - name: Run go vet
       run: go vet ./...
 
