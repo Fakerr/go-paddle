@@ -26,8 +26,5 @@ jobs:
     - name: Run go vet
       run: go vet ./...
 
-    - name: Build
-      run: go build -v ./...
-
     - name: Test
       run: go test -v ./paddle
