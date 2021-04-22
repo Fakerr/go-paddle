@@ -1,5 +1,6 @@
 # go-paddle #
 
+[![go-paddle release (latest SemVer)](https://img.shields.io/github/v/release/Fakerr/go-paddle?sort=semver)](https://github.com/Fakerr/go-paddle/releases)
 [![Test Status](https://github.com/Fakerr/go-paddle/actions/workflows/test.yml/badge.svg)](https://github.com/Fakerr/go-paddle/actions/workflows/test.yml)
 
 go-paddle is a Go client library for accessing the [Paddle API](https://developer.paddle.com/api-reference/intro).
