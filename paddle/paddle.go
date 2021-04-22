@@ -53,6 +53,7 @@ type Client struct {
 	Coupons       *CouponsService
 	Products      *ProductsService
 	RefundPayment *RefundPaymentService
+	PayLink       *PayLinkService
 }
 
 type service struct {
@@ -107,6 +108,7 @@ func getClient(httpClient *http.Client, baseURL *url.URL, vendorID, vendorAuthCo
 	c.Coupons = (*CouponsService)(&c.common)
 	c.Products = (*ProductsService)(&c.common)
 	c.RefundPayment = (*RefundPaymentService)(&c.common)
+	c.PayLink = (*PayLinkService)(&c.common)
 	return c
 }
 
