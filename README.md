@@ -134,6 +134,11 @@ func PaddleWebhookHandler(w http.ResponseWriter, r *http.Request) {
 
 ```
 
+## Todos ##
+List of Paddle APIs that are not covered yet or are work in progress: 
+- [ ] Licenses
+- [ ] Transactions
+
 ## Contributing ##
 Pull requests are welcome, along with any feedback or ideas. The calling pattern is pretty well established, so adding new methods is relatively
 straightforward.
