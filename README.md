@@ -97,7 +97,7 @@ Some requests for resource collections (users, webhooks, etc.)
 support pagination. Pagination options are described in the
 `paddle.ListOptions` struct and passed to the list methods directly or as an
 embedded type of a more specific list options struct (for example
-`github.UsersOptions`).
+`paddle.UsersOptions`).
 
 ```go
 client := paddle.NewClient(vendorId, vendorAuthCode, nil)
