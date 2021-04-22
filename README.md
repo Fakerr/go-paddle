@@ -109,6 +109,31 @@ opt := &UsersOptions{
 }
 users, _, err := client.Users.List(context.Background(), opt)
 ```
+### Webhooks ###
+go-paddle comes with helper functions in order to facilitate the validatation and parsing of webhook events.
+For recognized event types, a value of the corresponding struct type will be returned.
+
+Example usage:
+
+```go
+func PaddleWebhookHandler(w http.ResponseWriter, r *http.Request) {
+   payload, err := paddle.ValidatePayload(r, webhookSecretKey)
+   if err != nil { ... }
+
+   alert, err := paddle.ParsePayload(payload)
+   if err != nil { ... }
+
+   switch alert := alert.(type) {
+   case *paddle.SubscriptionCreatedAlert:
+       processSubscriptionCreatedAlert(alert)
+   case *paddle.SubscriptionCanceledAlert:
+       processSubscriptionCanceledAlert(alert)
+   ...
+   }
+}
+
+```
+
 ## Contributing ##
 Pull requests are welcome, along with any feedback or ideas. The calling pattern is pretty well established, so adding new methods is relatively
 straightforward.
