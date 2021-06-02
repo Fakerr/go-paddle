@@ -31,7 +31,7 @@ type SubscriptionCreatedAlert struct {
 	Currency           *string `json:"currency"`
 	Email              *string `json:"email"`
 	EventTime          *string `json:"event_time"`
-	MarketingConsent   *int    `json:"marketing_consent"`
+	MarketingConsent   *string `json:"marketing_consent"`
 	NextBillDate       *string `json:"next_bill_date"`
 	Passthrough        *string `json:"passthrough"`
 	Quantity           *string `json:"quantity"`
@@ -53,7 +53,7 @@ type SubscriptionUpdatedAlert struct {
 	CheckoutID            *string `json:"checkout_id"`
 	Email                 *string `json:"email"`
 	EventTime             *string `json:"event_time"`
-	MarketingConsent      *int    `json:"marketing_consent"`
+	MarketingConsent      *string `json:"marketing_consent"`
 	NewPrice              *string `json:"new_price"`
 	NewQuantity           *string `json:"new_quantity"`
 	NewUnitPrice          *string `json:"new_unit_price"`
@@ -86,7 +86,7 @@ type SubscriptionCancelledAlert struct {
 	Currency                  *string `json:"currency"`
 	Email                     *string `json:"email"`
 	EventTime                 *string `json:"event_time"`
-	MarketingConsent          *int    `json:"marketing_consent"`
+	MarketingConsent          *string `json:"marketing_consent"`
 	Passthrough               *string `json:"passthrough"`
 	Quantity                  *string `json:"quantity"`
 	Status                    *string `json:"status"`
@@ -115,9 +115,9 @@ type SubscriptionPaymentSucceededAlert struct {
 	Email                 *string `json:"email"`
 	EventTime             *string `json:"event_time"`
 	Fee                   *string `json:"fee"`
-	InitialPayment        *int    `json:"initial_payment"`
+	InitialPayment        *string `json:"initial_payment"`
 	Instalments           *string `json:"instalments"`
-	MarketingConsent      *int    `json:"marketing_consent"`
+	MarketingConsent      *string `json:"marketing_consent"`
 	NextBillDate          *string `json:"next_bill_date"`
 	NextPaymentAmount     *string `json:"next_payment_amount"`
 	OrderID               *string `json:"order_id"`
@@ -147,7 +147,7 @@ type SubscriptionPaymentFailedAlert struct {
 	Currency              *string `json:"currency"`
 	Email                 *string `json:"email"`
 	EventTime             *string `json:"event_time"`
-	MarketingConsent      *int    `json:"marketing_consent"`
+	MarketingConsent      *string `json:"marketing_consent"`
 	NextRetryDate         *string `json:"next_retry_date"`
 	Passthrough           *string `json:"passthrough"`
 	Quantity              *string `json:"quantity"`
@@ -181,9 +181,9 @@ type SubscriptionPaymentRefundedAlert struct {
 	EventTime               *string `json:"event_time"`
 	FeeRefund               *string `json:"fee_refund"`
 	GrossRefund             *string `json:"gross_refund"`
-	InitialPayment          *int    `json:"initial_payment"`
+	InitialPayment          *string `json:"initial_payment"`
 	Instalments             *string `json:"instalments"`
-	MarketingConsent        *int    `json:"marketing_consent"`
+	MarketingConsent        *string `json:"marketing_consent"`
 	OrderID                 *string `json:"order_id"`
 	Passthrough             *string `json:"passthrough"`
 	Quantity                *string `json:"quantity"`
@@ -218,7 +218,7 @@ type PaymentSucceededAlert struct {
 	EventTime         *string `json:"event_time"`
 	Fee               *string `json:"fee"`
 	IP                *string `json:"ip"`
-	MarketingConsent  *int    `json:"marketing_consent"`
+	MarketingConsent  *string `json:"marketing_consent"`
 	OrderID           *string `json:"order_id"`
 	Passthrough       *string `json:"passthrough"`
 	PaymentMethod     *string `json:"payment_method"`
@@ -249,7 +249,7 @@ type PaymentRefundedAlert struct {
 	EventTime               *string `json:"event_time"`
 	FeeRefund               *string `json:"fee_refund"`
 	GrossRefund             *string `json:"gross_refund"`
-	MarketingConsent        *int    `json:"marketing_consent"`
+	MarketingConsent        *string `json:"marketing_consent"`
 	OrderID                 *string `json:"order_id"`
 	Passthrough             *string `json:"passthrough"`
 	Quantity                *string `json:"quantity"`
@@ -271,7 +271,7 @@ type LockerProcessedAlert struct {
 	EventTime        *string `json:"event_time"`
 	Instructions     *string `json:"instructions"`
 	Licence          *string `json:"licence"`
-	MarketingConsent *int    `json:"marketing_consent"`
+	MarketingConsent *string `json:"marketing_consent"`
 	OrderID          *string `json:"order_id"`
 	ProductID        *string `json:"product_id"`
 	Quantity         *string `json:"quantity"`
@@ -289,7 +289,7 @@ type PaymentDisputeCreatedAlert struct {
 	Email            *string `json:"email"`
 	EventTime        *string `json:"event_time"`
 	FeeUsd           *string `json:"fee_usd"`
-	MarketingConsent *int    `json:"marketing_consent"`
+	MarketingConsent *string `json:"marketing_consent"`
 	OrderID          *string `json:"order_id"`
 	Passthrough      *string `json:"passthrough"`
 	Status           *string `json:"status"`
@@ -306,7 +306,7 @@ type PaymentDisputeClosedAlert struct {
 	Email            *string `json:"email"`
 	EventTime        *string `json:"event_time"`
 	FeeUsd           *string `json:"fee_usd"`
-	MarketingConsent *int    `json:"marketing_consent"`
+	MarketingConsent *string `json:"marketing_consent"`
 	OrderID          *string `json:"order_id"`
 	Passthrough      *string `json:"passthrough"`
 	Status           *string `json:"status"`
@@ -323,7 +323,7 @@ type HighRiskTransactionCreatedAlert struct {
 	CustomerEmailAddress *string `json:"customer_email_address"`
 	CustomerUserID       *string `json:"customer_user_id"`
 	EventTime            *string `json:"event_time"`
-	MarketingConsent     *int    `json:"marketing_consent"`
+	MarketingConsent     *string `json:"marketing_consent"`
 	Passthrough          *string `json:"passthrough"`
 	ProductID            *string `json:"product_id"`
 	RiskScore            *string `json:"risk_score"`
@@ -341,7 +341,7 @@ type HighRiskTransactionUpdatedAlert struct {
 	CustomerEmailAddress *string `json:"customer_email_address"`
 	CustomerUserID       *string `json:"customer_user_id"`
 	EventTime            *string `json:"event_time"`
-	MarketingConsent     *int    `json:"marketing_consent"`
+	MarketingConsent     *string `json:"marketing_consent"`
 	OrderID              *string `json:"order_id"`
 	Passthrough          *string `json:"passthrough"`
 	ProductID            *string `json:"product_id"`
@@ -380,7 +380,7 @@ type NewAudienceMemberAlert struct {
 	CreatedAt        *string `json:"created_at"`
 	Email            *string `json:"email"`
 	EventTime        *string `json:"event_time"`
-	MarketingConsent *int    `json:"marketing_consent"`
+	MarketingConsent *string `json:"marketing_consent"`
 	Products         *string `json:"products"`
 	Source           *string `json:"source"`
 	Subscribed       *string `json:"subscribed"`
