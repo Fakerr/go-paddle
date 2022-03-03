@@ -2,6 +2,7 @@ package paddle
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -21,6 +22,52 @@ type Payment struct {
 	IsPaid         *int    `json:"is_paid,omitempty"`
 	ReceiptUrl     *string `json:"receipt_url,omitempty"`
 	IsOneOffCharge *int    `json:"is_one_off_charge,omitempty"`
+}
+
+// paymentTemp is temporary structure that aims to hotfix the invalid IsOneOffCharge type.
+// In api declared as int, but returned as boolean (at least on sandbox)
+type paymentTemp struct {
+	ID             *int        `json:"id,omitempty"`
+	SubscriptionID *int        `json:"subscription_id,omitempty"`
+	Amount         *int        `json:"amount,omitempty"`
+	Currency       *string     `json:"currency,omitempty"`
+	PayoutDate     *string     `json:"payout_date,omitempty"`
+	IsPaid         *int        `json:"is_paid,omitempty"`
+	ReceiptUrl     *string     `json:"receipt_url,omitempty"`
+	IsOneOffCharge interface{} `json:"is_one_off_charge,omitempty"`
+}
+
+func (t *Payment) UnmarshalJSON(data []byte) error {
+	var temp paymentTemp
+	if err := json.Unmarshal(data, &temp); err != nil {
+		return err
+	}
+
+	var sanitizedIsOneOffCharge *int
+	if temp.IsOneOffCharge != nil {
+		switch v := temp.IsOneOffCharge.(type) {
+		case *bool:
+			if *v == true {
+				trueVal := 1
+				sanitizedIsOneOffCharge = &trueVal
+			}
+		case *int:
+			sanitizedIsOneOffCharge = v
+		}
+	}
+
+	*t = Payment{
+		ID:             temp.ID,
+		SubscriptionID: temp.SubscriptionID,
+		Amount:         temp.Amount,
+		Currency:       temp.Currency,
+		PayoutDate:     temp.PayoutDate,
+		IsPaid:         temp.IsPaid,
+		ReceiptUrl:     temp.ReceiptUrl,
+		IsOneOffCharge: sanitizedIsOneOffCharge,
+	}
+
+	return nil
 }
 
 type PaymentsResponse struct {
