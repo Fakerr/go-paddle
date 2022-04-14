@@ -14,14 +14,14 @@ type PaymentsService service
 
 // Payment represents a Paddle payment.
 type Payment struct {
-	ID             *int    `json:"id,omitempty"`
-	SubscriptionID *int    `json:"subscription_id,omitempty"`
-	Amount         *int    `json:"amount,omitempty"`
-	Currency       *string `json:"currency,omitempty"`
-	PayoutDate     *string `json:"payout_date,omitempty"`
-	IsPaid         *int    `json:"is_paid,omitempty"`
-	ReceiptUrl     *string `json:"receipt_url,omitempty"`
-	IsOneOffCharge *int    `json:"is_one_off_charge,omitempty"`
+	ID             *int     `json:"id,omitempty"`
+	SubscriptionID *int     `json:"subscription_id,omitempty"`
+	Amount         *float64 `json:"amount,omitempty"`
+	Currency       *string  `json:"currency,omitempty"`
+	PayoutDate     *string  `json:"payout_date,omitempty"`
+	IsPaid         *int     `json:"is_paid,omitempty"`
+	ReceiptUrl     *string  `json:"receipt_url,omitempty"`
+	IsOneOffCharge *int     `json:"is_one_off_charge,omitempty"`
 }
 
 // paymentTemp is temporary structure that aims to hotfix the invalid IsOneOffCharge type.
@@ -29,7 +29,7 @@ type Payment struct {
 type paymentTemp struct {
 	ID             *int        `json:"id,omitempty"`
 	SubscriptionID *int        `json:"subscription_id,omitempty"`
-	Amount         *int        `json:"amount,omitempty"`
+	Amount         *float64    `json:"amount,omitempty"`
 	Currency       *string     `json:"currency,omitempty"`
 	PayoutDate     *string     `json:"payout_date,omitempty"`
 	IsPaid         *int        `json:"is_paid,omitempty"`
