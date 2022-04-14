@@ -1,4 +1,4 @@
-module github.com/Fakerr/go-paddle
+module github.com/jancimertel/go-paddle
 
 go 1.16
 
